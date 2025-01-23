@@ -1,0 +1,55 @@
+---
+title: "DSDA 1995: Data Science and Society using R"
+author: 
+  - name: Jason Byers
+    email: jason.byers@uconn.edu
+date: today
+---
+
+Welcome to our course website! Here you can find links to everything you'll need this semester:
+
+-   The course [syllabus](https://byersjs.github.io/DSDA-1995-Syllabus/)
+
+-   Submit assignments at our course [HuskyCT page](https://huskyct.uconn.edu) (mortarboard icon in the upper right).
+
+-   I will post code, data, and lecture notes on the course [GitHub repository](https://github.com/byersjs/DSDA-1995) (the octocat icon in the upper right).
+
+# Course Description
+
+The course aims to introduce students to the foundational concepts of
+data science and its impact on modern society. The course will develop
+students’ technical skills in data literacy, wrangling, analysis, and
+visualization, while fostering an understanding of how data science
+can be applied to real life issues.
+
+# Course Objectives
+
+Together, we will strive for your individual and collective success in achieving the learning outcomes of this course. At the conclusion of this course, students will be able to:
+
+- Students will develop a foundational understanding of data science principles and their societal implications. 
+
+- Gain proficiency in data wrangling, analysis, visualization, and basic programming. Cultivate data/computer/programming literacy to support further study in data science.
+
+- Analyze real-world issues through data-driven approaches. 
+
+- Prepare for advanced studies and careers by understanding the skills
+and knowledge required in data science.
+
+# Course Materials
+
+To maximize access to this class, we will use some textbooks, videos, and other resources, with a focus on the following:
+
+-   Primary Text (R4DS): Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. [R for Data Science: Import Tidy, Transform, Visualize, and Model Data.](https://r4ds.hadley.nz) 2nd Edition. O'Reilly Media. This book is freely available online. It is also available in paperback, if you prefer a hard copy. Warning: some content and the numbering system differs between print and online versions; I will exclusively refer to the free online version.
+
+-   Reference Text (GCR): Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. ["Geocomputation with R."](https://geocompr.robinlovelace.net) CRC Press. This book is freely available online. It is also available in paperback, if you prefer a hard copy. Warning: some content and the numbering system differs between print and online versions; I will exclusively refer to the free online version.
+
+-   Reference Text (USDR): Engel, Claudia A. 2019. ["Using Spatial Data with R."](https://cengel.github.io/R-spatial/) This book is freely available online.
+
+-   Primary Text (MSR): Wickham, Hadley. 2021. ["Mastering Shiny: Build Interactive Apps, Reports and Dashboards Powered by R."](https://mastering-shiny.org/index.html) O'Reilly Media. This book is freely available online.
+
+**Reference Texts** <br>
+
+-   Reference Text (HOPR): Grolemund, Garrett. 2014. [Hands-On Programming with R: Write Your Own Functions and Simulations.](https://rstudio-education.github.io/hopr/) O'Reilly Media. This book is freely available online. It is also available in paperback, if you prefer a hard copy. Warning: some content and the numbering system differs between print and online versions; I will exclusively refer to the free online version.
+
+-   Reference Text (DSB): Cetinkaya-Rundel, Mine. 2021. [Data Science in a Box.](https://datasciencebox.org/index.html) This book is freely available online.
+
