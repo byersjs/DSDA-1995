@@ -1,0 +1,382 @@
+---
+title: "DSDA 1995"
+subtitle: "Data Science and Society using R"
+author: "Lecture 18 | Shiny in Quarto II"
+format: html 
+embed-resources: true
+server: shiny
+layout: sidebar
+---
+
+```{r}
+#| include: FALSE
+library(tidyverse)
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE)
+```
+
+## Plan for Today
+
+- Explore Shiny apps in R
+- Explore basic workflow in Shiny
+- Explore layouts, themes, and HTML
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+## Shiny Workflow
+
+- Improving workflow is a good place to invest time because it tends to pay great dividends in the long run
+
+- It doesn’t just increase the proportion of your time spent writing R code, but because you see the results more quickly, it makes the process of writing Shiny apps more enjoyable, and helps your skills improve more quickly
+
+- Three important Shiny workflows
+
+  + The basic development cycle of creating apps, making changes, and experimenting with the results
+  
+  + Debugging, the workflow where you figure out what’s gone wrong with your code and then brainstorm solutions to fix it
+  
+  + Writing reprexes, self-contained chunks of code that illustrate a problem. Reprexes are a powerful debugging technique, and they are essential if you want to get help from someone else
+  
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+## Development Workflow
+
+- The goal of optimizing your development workflow is to reduce the time between making a change and seeing the outcome
+
+- Let's create an app
+
+  - We need a UI component
+  
+  - We need a server component
+
+- You will start every app with these
+
+  + If you want to start a new file, go to the File menu, select “New File” then select “Quarto Document”, then "Interactive"
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+## Debugging
+
+- When you start writing apps, it is almost guaranteed that something will go wrong
+
+- There are three main cases of problems
+
+  + You get an unexpected error. This is the easiest case, because you’ll get a traceback which allows you to figure out exactly where the error occurred. Once you’ve identified the problem, you’ll need to systematically test your assumptions until you find a difference between your expectations and reality. The interactive debugger is a powerful assistant for this process
+  
+  + You don’t get any errors, but some value is incorrect. Here, you’ll need to use the interactive debugger, along with your investigative skills to track down the root cause
+  
+  + All the values are correct, but they’re not updated when you expect. This is the most challenging problem because it’s unique to Shiny, so you can’t take advantage of your existing R debugging skills
+  
+- Read the tracebacks
+
+```{r}
+#| context: server
+```
+
+```{r}
+#| eval: false
+#| context: setup
+
+# Define helper functions globally
+f <- function(x) g(x)
+g <- function(x) h(x)
+h <- function(x) x * 2
+```
+
+```{r}
+#| eval: false
+selectInput("n", "N", choices = 1:10)
+```
+
+```{r}
+#| eval: false
+plotOutput("plot")
+```
+
+```{r}
+#| eval: false
+#| context: server
+
+output$plot <- renderPlot({
+  n <- f(input$n)  # Convert to numeric because selectInput returns a string
+  plot(head(cars, n))
+}, res = 96)
+```
+
+- Which provides us the following error
+
+```{r}
+#| eval: false
+
+Warning: Error in *: non-numeric argument to binary operator
+  182: g
+  181: f
+  180: renderPlot
+  178: func
+  138: drawPlot
+  124: <reactive:plotObj>
+  104: drawReactive
+   91: renderFunc
+   90: output$plot
+    5: <Anonymous>
+    3: rmarkdown::run
+    2: run
+    1: .main
+```
+
+- To understand what’s going on we again start by flipping it upside down, so you can see the sequence of calls in the order they appear
+
+```{r}
+#| eval: false
+
+Warning: Error in *: non-numeric argument to binary operator
+    1: .main
+    2: run
+    3: rmarkdown::run
+    5: <Anonymous>
+    90: output$plot
+    91: renderFunc
+    104: drawReactive
+    124: <reactive:plotObj>
+    138: drawPlot
+    178: func
+    180: renderPlot
+    181: f
+    182: g
+```
+
+- This is a call stack (last called is at the top). Here's the flow of what happened:
+
+  - Your Shiny app was trying to render output$plot
+  - Inside that, it called renderPlot
+  - Inside that, your code called f(), which called g()
+  - Inside g(), you tried to multiply something (*) that wasn’t numeric
+
+- There are three basic parts to the call stack
+
+```{r}
+#| eval: false
+
+    1: .main
+    2: run
+    3: rmarkdown::run
+    5: <Anonymous>
+
+```
+
+- You can largely ignore this. This is just shiny being set up.
+
+```{r}
+#| eval: false
+
+    90: output$plot
+    91: renderFunc
+    104: drawReactive
+    124: <reactive:plotObj>
+    138: drawPlot
+    178: func
+```
+
+- Here, spotting `output$plot` is really important — that tells which of your reactives (plot) is causing the error
+
+- Finally, at the very bottom, you’ll see the code that you have written
+
+```{r}
+#| eval: false
+
+    180: renderPlot
+    181: f
+    182: g
+```
+
+
+- This is the code called inside of `renderPlot()`. You can tell you should pay attention here because of the file path and line number; this lets you know that it’s your code
+
+- Make sure that you use these tips to try and diagnose what is happening in your code
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+## Layout, Themes, HTML
+
+- Ultimately, we care most about the appearance of our apps
+
+- We want the user to enjoy looking at our apps and using them 
+
+- We will discuss the `Bootstrap`, `CSS` and `HTML`
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+### Single Page Layouts
+
+- Last week, we talked about `inputs` and `outputs` that form the interactive components of the app
+
+- What we didn't discuss was how to optimize our apps with `layout` functions
+
+- `Layout` functions provide the high-level visual structure of an app
+
+- In Quarto, you don’t need layout functions like fluidPage() or sidebarLayout()
+
+  - Instead, Quarto uses a YAML header to set layout, and each section is marked using panel: directives. It’s declarative, not functional
+  
+```{r}
+#| eval: false
+
+---
+title: "DSDA 1995" #titlePanel()
+subtitle: "Data Science and Society using R"
+author: "Lecture 18 | Shiny in Quarto II"
+format: html 
+embed-resources: true
+server: shiny #fluidPage()
+layout: sidebar #sidebarLayout()
+---
+
+```
+
+- You can set the type of panel you want in the code chunk
+
+```{r}
+#| eval: false
+
+# #| panel: sidebar
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+### Multi-Page Layouts
+
+- As your app grows in complexity, it might become impossible to fit everything on a single page
+
+- The simple way to break up a page into pieces is to use tabset in your YAML
+
+```{r}
+#| eval: false
+
+---
+title: "DSDA 1995" #titlePanel()
+subtitle: "Data Science and Society using R"
+author: "Lecture 18 | Shiny in Quarto II"
+format: html 
+embed-resources: true
+server: shiny #fluidPage()
+layout: tabset #tabsetPanel()
+---
+```
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+### Bootstrap
+
+- `Bootstrap` is a collection of HTML conventions, CSS styles, and JS snippets bundled up into a convenient form
+
+- You have experience with `Bootstrap` and differing CSS styles through our Rmarkdown documents
+
+- As a Shiny developer, you don’t need to think too much about Bootstrap, because Shiny functions automatically generate bootstrap compatible HTML for you
+
+  + You can use `bslib::bs_theme()` to customize the visual appearance of your code
+  
+    - Better for advanced shiny users
+    
+    - You can control themes in the YAML in Quarto
+  
+  + You can use the `class` argument to customize some layouts, inputs, and outputs
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+### Themes
+
+- It’s easy to get style fatigue, after a while every Shiny app and Rmd start to look the same
+
+- The solution is theming with the `bslib` package
+
+- `bslib` is relatively new package that allows you to override many `Bootstrap` defaults in order to create an appearance that is uniquely yours
+
+- Let's create a theme with `bslib::bs_theme()` then apply it to an app with the theme argument of the page layout function
+
+```{r}
+#| eval: false
+
+---
+title: "Darkly Theme App"
+format:
+  html:
+    theme: darkly
+server: shiny
+layout: sidebar
+---
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+----
+
+## For Next Class
+
+-   Review what you learned today
+
+-   TBD
+
+-   Bring your laptops to class
