@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 3 | In-Class Activity</title>
+<title>Week 6 | In-Class Activity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3164,7 +3164,7 @@ border-radius: 5px;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 3 | In-Class Activity</h1>
+<h1 class="title">Week 6 | In-Class Activity</h1>
 </div>
 
 
@@ -3183,114 +3183,74 @@ border-radius: 5px;
 
 <section id="class-activity-part-i" class="level2">
 <h2 class="anchored" data-anchor-id="class-activity-part-i">Class Activity Part I</h2>
-<p>We are going to practice creating some plots in <code>ggplot()</code>.</p>
-<section id="getting-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="getting-the-data">Getting the Data</h3>
-<ul>
-<li>Go to: <a href="https://github.com/byersjs/DSDA-1995">the course website</a>
-<ul>
-<li>Download the <code>justice_NY_clean</code> data set</li>
-<li>Load the <code>tidyverse</code> package</li>
-</ul></li>
-</ul>
+<p>We are going to practice tidying data and creating graphics.</p>
 <hr>
-</section>
 <section id="utilize-this-code-with-a-partner" class="level3">
 <h3 class="anchored" data-anchor-id="utilize-this-code-with-a-partner">Utilize This Code with a Partner</h3>
-<p>Load the data</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>prison <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <ol type="1">
-<li>Create a scatter plot of the Percent Under $25K vs rate.</li>
+<li>Tidy <code>south</code> so you can make a bar graph showing demographic breakdown by state</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ) <span class="sc">+</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> , <span class="at">y =</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>south <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">state =</span> <span class="fu">c</span>(<span class="st">&quot;NC&quot;</span>, <span class="st">&quot;SC&quot;</span>, <span class="st">&quot;GA&quot;</span>, <span class="st">&quot;TN&quot;</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pct_black =</span> <span class="fu">c</span>(.<span class="dv">2</span>, .<span class="dv">3</span>, .<span class="dv">4</span>, .<span class="dv">25</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pct_hisp =</span> <span class="fu">c</span>(.<span class="dv">1</span>, .<span class="dv">2</span>, .<span class="dv">2</span>, .<span class="dv">15</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">pct_asian =</span> <span class="fu">c</span>(.<span class="dv">1</span>, .<span class="dv">2</span>, .<span class="dv">1</span>, .<span class="dv">1</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">pct_white =</span> <span class="fu">c</span>(.<span class="dv">6</span>, .<span class="dv">3</span>, .<span class="dv">3</span>, .<span class="dv">5</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol type="1">
-<li>Use aesthetics to indicate cost</li>
+<li>Tidy <code>relig_income</code></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Insert Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>relig_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 18 × 11
+   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`
+   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+ 1 Agnostic      27        34        60        81        76       137        122
+ 2 Atheist       12        27        37        52        35        70         73
+ 3 Buddhist      27        21        30        34        33        58         62
+ 4 Catholic     418       617       732       670       638      1116        949
+ 5 Don’t k…      15        14        15        11        10        35         21
+ 6 Evangel…     575       869      1064       982       881      1486        949
+ 7 Hindu          1         9         7         9        11        34         47
+ 8 Histori…     228       244       236       238       197       223        131
+ 9 Jehovah…      20        27        24        24        21        30         15
+10 Jewish        19        19        25        25        30        95         69
+11 Mainlin…     289       495       619       655       651      1107        939
+12 Mormon        29        40        48        51        56       112         85
+13 Muslim         6         7         9        10         9        23         16
+14 Orthodox      13        17        23        32        32        47         38
+15 Other C…       9         7        11        13        13        14         18
+16 Other F…      20        33        40        46        49        63         46
+17 Other W…       5         2         3         4         2         7          3
+18 Unaffil…     217       299       374       365       341       528        407
+# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,
+#   `Don&#39;t know/refused` &lt;dbl&gt;</code></pre>
+</div>
 </div>
 <ol type="1">
-<li>Change the size, shape and/or color of all points in your scatterplot</li>
+<li>Tidy <code>us_rent_income</code> (hint: names_from or values_from can be a list; use c())</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Insert Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>us_rent_income</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 104 × 5
+   GEOID NAME       variable estimate   moe
+   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+ 1 01    Alabama    income      24476   136
+ 2 01    Alabama    rent          747     3
+ 3 02    Alaska     income      32940   508
+ 4 02    Alaska     rent         1200    13
+ 5 04    Arizona    income      27517   148
+ 6 04    Arizona    rent          972     4
+ 7 05    Arkansas   income      23789   165
+ 8 05    Arkansas   rent          709     5
+ 9 06    California income      29454   109
+10 06    California rent         1358     3
+# ℹ 94 more rows</code></pre>
 </div>
-</section>
-</section>
-<section id="class-activity-part-ii" class="level2">
-<h2 class="anchored" data-anchor-id="class-activity-part-ii">Class Activity Part II</h2>
-<p>We are going to continue practicing creating plots in <code>ggplot()</code>.</p>
-<section id="getting-the-data-1" class="level3">
-<h3 class="anchored" data-anchor-id="getting-the-data-1">Getting the Data</h3>
-<ul>
-<li>Go to: <a href="https://github.com/byersjs/POLS-5605">the course website</a>
-<ul>
-<li>Download the <code>Chetty_2014</code> data set</li>
-<li>Load the <code>tidyverse</code> package</li>
-</ul></li>
-</ul>
-<hr>
-<p>Load the data</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>chetty <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>Visualize the relationship between social capital and absolute mobility. Do you see a correlation? Is it what you expected from the Chetty study executive summary?</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> chetty, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> social_capital, <span class="at">y =</span> abs_mobility)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>Add an aesthetic to your graph to represent whether the CZ is urban or not.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Insert Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>Separate urban and non-urban CZ’s into two separate plots.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Insert Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>Add a smooth fit to each of your plots above. Experiment with adding the option method=“lm” in your geom_smooth. What does this option do?</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Insert Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Which variables in the chetty data frame are appropriate x variables for a bar graph?</p>
-<ul>
-<li>Any categorical variable can be the x-variable in a bar graph, so cz_name, state, region, division, and urban.</li>
-<li>Note that the variables with values of either 0 or 1 (top_100, inctax_progressive, eitc) are <em>theoretically</em> categorical because there are only two options for the value. However, in this data frame they are read in as “dbl” which is a continuous numerical variable type. Because I converted top_100 to a “factor,” it is also categorical, and you could do the same with the other 0/1 variables. We’ll learn more about this later!</li>
-</ul>
-<ol type="1">
-<li>Make two separate bar graphs for two different x variables.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first plot</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>chetty, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>region)) <span class="sc">+</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#second plot</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Insert Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>Make two more bar graphs that display proportions rather than counts of your selected variables.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Insert Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>Make a bar graph that lets you compare the number of urban and rural CZ’s in each of the four regions</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Insert Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
