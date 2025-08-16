@@ -1,0 +1,77 @@
+---
+title: "Week 4 | In-Class Activity"
+format: 
+  html:
+    embed-resources: true
+editor: visual
+css: lab.css
+---
+
+```{r}
+#| include: FALSE
+
+library(tidyverse)
+
+```
+
+## Class Activity Part I
+
+We are going to practice manipulating data in R.
+
+### Getting the Data
+
+-   Go to: [the course website](https://github.com/byersjs/DSDA-1995)
+    -   Download the `Chetty_2014` data set
+    -   Load the `tidyverse` package
+
+------------------------------------------------------------------------
+
+### Utilize This Code with a Partner
+
+Load the data
+
+```{r}
+#INSERT CODE HERE
+```
+
+1.  Create a data frame with CZs in CT, MA, and NY.
+
+```{r}
+#INSERT CODE HERE
+```
+
+1.  Create a data frame with CZ's with absolute mobility of at least 40
+
+```{r}
+#INSERT CODE HERE
+```
+
+1.  Create a data frame with CZ's in any state other than CT, MA, or NY, with absolute mobility at least 40
+
+```{r}
+#INSERT CODE HERE
+```
+
+1.  Create a data frame with CZ's that are in CT, MA, NY and have absolute mobility less than 40
+
+```{r}
+#INSERT CODE HERE
+```
+
+1.  Create a data frame with CZ's that are in CT, MA, NY, sorting the CZ's in decreasing order of absolute mobility, and keeping just the CZ name, state, and absolute mobility variables in the resulting data frames
+
+```{r}
+#INSERT CODE HERE
+```
+
+1.  Take the Chetty data set and create a new data set with only the following variables: cz_name, state, pop_2000, abs_mobility, hhi_percap, and any variable that starts with "frac"
+
+```{r}
+#INSERT CODE HERE
+```
+
+1.  Make new variables for each of these quantities: (A) the number of people in each CZ who consider themselves to be religious. (B) the log base 2 of the per capita household income (hint: log2() ). (C) the proportion of people who are not married.
+
+```{r}
+#INSERT CODE HERE
+```

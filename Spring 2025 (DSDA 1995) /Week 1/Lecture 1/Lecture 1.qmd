@@ -1,0 +1,148 @@
+---
+title: "DSDA 1995"
+subtitle: "Data Science and Society using R"
+author: "Lecture 1 | Course Introduction"
+format: 
+  revealjs:
+    slide-number: c/t
+    scrollable: true
+    theme: [simple, custom.scss]
+    embed-resources: true
+editor: visual
+---
+
+## Introduction
+
+::: extrapad
+-   Who am I?
+    -   Dr. Jason Byers
+:::
+
+::: extrapad
+-   Where am I?
+    -   Office: SSH 433
+    -   E-mail: jason.byers\@uconn.edu
+:::
+
+::: extrapad
+-   When am I?
+    -   Office Hours: Monday 11 - 1
+:::
+
+## Plan for Today
+
+-   What are the course goals?
+
+-   How will your grade be determined?
+
+-   What resources will be available to you?
+
+-   Syllabus overview
+
+-   Questions?
+
+-   Introductions
+
+-   Download / Install R and RStudio
+
+-   Introduction to R
+
+## What are the Course Goals?
+
+::: extrapad
+-   This is a very applied class
+    -   We are going to learn [**practical skills**]{style="color:#000E2F"}
+:::
+
+::: extrapad
+-   From the very beginning, we will use
+    -   The programming language [**R**]{style="color:#000E2F"}
+
+    -   To analyze [**real data**]{style="color:#000E2F"}
+
+    -   For the purpose of answering [**substantive questions**]{style="color:#000E2F"}
+:::
+
+::: extrapad
+-   In the process, you might learn some
+    -   [**Statistics**]{style="color:#000E2F"}
+
+    -   [**How to code in R**]{style="color:#000E2F"} (R is the name of the program and the name of the language)
+:::
+
+------------------------------------------------------------------------
+
+::: extrapad
+-   In this course you will learn how to
+    -   [**Basic Programming**]{style="color:#000E2F"}
+    -   [**Data Visualization**]{style="color:#000E2F"}
+    -   [**Data Analysis**]{style="color:#000E2F"}
+:::
+
+::: extrapad
+-   Why do you need to learn how to analyze data and evaluate data analyses? (Why are you taking DSDA 1995?)
+    -   Most social, political, and business decisions are made based on data
+    -   If you cannot do the analysis yourself, you need to at least know how to distinguish a good quantitative study from a poorly conducted one
+:::
+
+## Coding
+
+::: extrapad
+-   For the purpose of analyzing data, you are going to have to learn some [**coding**]{style="color:#000E2F"}
+:::
+
+::: extrapad
+<center><img src="stressed.jpg" height="200px"/></center>
+:::
+
+::: extrapad
+-   Do not panic! The course is setup so anyone can do well. I assume no prior knowledge
+:::
+
+::: extrapad
+-   Good news! These are [**very practical skills**]{style="color:#000E2F"}, currently in [**high demand**]{style="color:#000E2F"} for [**well-paid jobs**]{style="color:#000E2F"}
+:::
+
+## How will your Grade be Determined?
+
+::: extrapad
+-   Problem Sets: [**40 points**]{style="color:#000E2F"}
+:::
+
+::: extrapad
+-   Quizzes: [**40 points**]{style="color:#000E2F"}
+:::
+
+::: extrapad
+-   Final Project: [**20 points**]{style="color:#000E2F"}
+:::
+
+## What Resources Will be Availble to You?
+
+::: extrapad
+-   Course Website
+:::
+
+::: extrapad
+-   Textbooks
+:::
+
+::: extrapad
+-   Peers
+:::
+
+::: extrapad
+-   Internet
+:::
+
+## Course Website
+
+-   Course website is: We will utilize the [course website](https://byersjs.github.io/DSDA-1995/) and HuskyCT
+
+-   Where you will find everything related to the class:
+
+    -   syllabus, lecture slides, labs, ...
+
+## Questions
+
+<center><img src="question.jpg" height="350px"/></center>

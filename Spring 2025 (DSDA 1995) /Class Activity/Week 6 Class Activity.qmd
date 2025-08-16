@@ -1,0 +1,48 @@
+---
+title: "Week 6 | In-Class Activity"
+format: 
+  html:
+    embed-resources: true
+editor: visual
+css: lab.css
+---
+
+```{r}
+#| include: FALSE
+
+library(tidyverse)
+
+```
+
+## Class Activity Part I
+
+We are going to practice tidying data and creating graphics.
+
+------------------------------------------------------------------------
+
+### Utilize This Code with a Partner
+
+1.  Tidy `south` so you can make a bar graph showing demographic breakdown by state
+
+```{r eval = FALSE}
+south <- tibble(
+  state = c("NC", "SC", "GA", "TN"),
+  pct_black = c(.2, .3, .4, .25),
+  pct_hisp = c(.1, .2, .2, .15),
+  pct_asian = c(.1, .2, .1, .1),
+  pct_white = c(.6, .3, .3, .5)
+)
+
+```
+
+1.  Tidy `relig_income`
+
+```{r}
+relig_income
+```
+
+1.  Tidy `us_rent_income` (hint: names_from or values_from can be a list; use c())
+
+```{r}
+us_rent_income
+```

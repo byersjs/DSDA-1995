@@ -1,0 +1,345 @@
+---
+title: "DSDA 1995"
+subtitle: "Data Science and Society using R"
+author: "Lecture 10 | Exploring Data II"
+format: 
+  revealjs:
+    slide-number: c/t
+    scrollable: true
+    theme: [simple, custom.scss]
+    embed-resources: true
+editor: visual
+---
+
+```{r}
+#| include: FALSE
+library(tidyverse)
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE)
+```
+
+## Plan for Today
+
+-   Continue to explore data in R
+
+
+## Covariation
+
+::: extrapad
+- Describes the behavior between variables
+:::
+
+::: extrapad
+- Is the tendency for the values of two or more variables to vary together in a related way
+:::
+
+
+## Categorical and Continuous Variable
+
+::: extrapad
+- Let's say we want to explore the distribution of a continuous variable broken down by a categorical variable
+:::
+
+::: extrapad
+- We could use `geom_freqpoly()`
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = diamonds, mapping = aes(x = price)) + 
+  geom_freqpoly(mapping = aes(colour = cut), binwidth = 500)
+```
+
+
+## Categorical and Continuous Variable
+
+::: extrapad
+- Issues
+  + It is based on the raw counts, which means we cannot see variation for categories that have smaller numbers
+:::  
+
+::: extrapad  
+- Let's examine the density instead
+  + Which is the count standardized so that the area under each frequency polygon is one.
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = diamonds, mapping = aes(x = price, y = ..density..)) + 
+  geom_freqpoly(mapping = aes(colour = cut), binwidth = 500)
+```
+
+::: extrapad
+- What do we notice? 
+:::
+
+::: extrapad
+- Do we like this plot? Is it useful? 
+:::
+
+::: extrapad
+- Any issues? 
+:::
+
+
+## Boxplots
+
+::: extrapad
+- Lets try an alternative, the `geom_boxplot()`
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = diamonds, mapping = aes(x = cut, y = price)) +
+  geom_boxplot()
+```
+
+
+## Boxplots
+
+::: extrapad
+- What are box plots? 
+  + The box provides the IQR (25th to the 75th percentiles)
+  + The bar, inside the box, provides us the median (50th percentile)
+  + The whiskers extend from each end of the box and go to the farthest non-outlier point in the distribution
+  + The points display observations that fall more than 1.5 X IQR from either side of the box
+:::
+
+::: extrapad
+- What do we think about the boxplot? 
+:::
+
+
+## Categorical Variable Ordering
+
+::: extrapad
+- What if our categorical variable does not have an intrinsic order? 
+:::
+
+::: extrapad
+- We can utilize the `reorder()` function
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
+  geom_boxplot()
+```
+
+<br>
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = mpg) +
+  geom_boxplot(mapping = aes(x = reorder(class, hwy, FUN = median), y = hwy))
+```
+
+<br>
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = mpg) +
+  geom_boxplot(mapping = aes(x = reorder(class, hwy, FUN = median), y = hwy)) +
+  coord_flip()
+```
+
+
+## Two Categorical Variables
+
+::: extrapad
+- To visualize the covariation between categorical variables, you’ll need to count the number of observations for each combination
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = diamonds) +
+  geom_count(mapping = aes(x = cut, y = color))
+```
+
+<br>
+
+- The size of each circle in the plot displays how many observations occurred at each combination of values
+
+## Two Categorical Variables
+
+::: extrapad
+- We can also utilize `geom_tile()`
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+diamonds %>% 
+  count(color, cut)
+
+diamonds %>% 
+  count(color, cut) %>%  
+  ggplot(mapping = aes(x = color, y = cut)) +
+    geom_tile(mapping = aes(fill = n))
+```
+
+
+## Two Continuous Variables
+
+::: extrapad
+- The scatterplot
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = diamonds) +
+  geom_point(mapping = aes(x = carat, y = price))
+```
+
+
+## Two Continuous Variables
+
+::: extrapad
+- What happens as the number of observations grow in a scatterplot? 
+:::
+
+::: extrapad
+- Using the alpha aesthetic to add transparency
+:::
+
+::: extrapad
+- Another option is to use `geom_bin2d()` and `geom_hex()`, which divide the coordinate plane into 2d bins and then use a fill color to display how many points fall into each bin
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = diamonds) + 
+  geom_point(mapping = aes(x = carat, y = price), alpha = 1 / 100)
+
+ggplot(data = diamonds) +
+  geom_bin2d(mapping = aes(x = carat, y = price))
+
+# install.packages("hexbin")
+ggplot(data = diamonds) +
+  geom_hex(mapping = aes(x = carat, y = price))
+```
+
+## Two Continuous Variables
+
+::: extrapad
+- Additionally, we can bin one of the continuous variables so that it acts like a categorical variable
+:::
+
+::: extrapad
+- `cut_width(x, width)`, as used below, divides x into bins of width width
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = diamonds, mapping = aes(x = carat, y = price)) + 
+  geom_boxplot(mapping = aes(group = cut_width(carat, 0.1)))
+```
+
+::: extrapad
+- Another approach is to display approximately the same number of points in each bin using `cut_number()`
+:::
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = diamonds, mapping = aes(x = carat, y = price)) + 
+  geom_boxplot(mapping = aes(group = cut_number(carat, 20)))
+```
+
+
+
+## Patterns and Models
+
+::: extrapad
+- Patterns
+  - Patterns in your data provide clues about relationships
+:::
+
+::: extrapad
+- If a systematic relationship exists between two variables it will appear as a pattern in the data
+  + Could this pattern be due to coincidence (i.e. random chance)?
+  + How can you describe the relationship implied by the pattern?
+  + How strong is the relationship implied by the pattern?
+  + What other variables might affect the relationship?
+  + Does the relationship change if you look at individual subgroups of the data?
+:::  
+
+## Patterns and Models
+
+::: extrapad
+- A scatterplot of Old Faithful eruption lengths versus the wait time between eruptions shows a pattern
+:::
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+#| out-width: 100%
+#| out-height: 100%
+
+ggplot(data = faithful) + 
+  geom_point(mapping = aes(x = eruptions, y = waiting))
+```
+
+<br>
+
+- What do we notice? 
+
+- We will discuss models later on in the semester. 
+
+
+## For Next Class
+
+-   Review what you learned today
+
+-   Do new set of readings:
+
+    -   We are going to examine causality
+    -   [R4DS Chapter 5]{style="color:#000E2F"}
+    -   [R4DS Chapter 19.1 - 19.2]{style="color:#000E2F"}
+        -   Follow along the exercises with your own computer
+
+-   Bring your laptops to class

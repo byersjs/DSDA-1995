@@ -1,0 +1,172 @@
+---
+title: "Quiz 3"
+author: "Your Name"
+format: 
+  html:
+    embed-resources: true
+    theme: cosomo
+editor: visual
+---
+
+### Instructions
+
+#### How to **complete** this assignment.
+
+-   Attempt each exercise in order.
+
+-   In each code chunk, if you see "<font color="789922">\# INSERT CODE HERE"</font>, then you are expected to add some code to create the intended output (Make sure to erase "\# INSERT CODE HERE" and place your code in its place).
+
+-   If my instructions say to "Run the code below..." then you do not need to add any code to the chunk.
+
+-   Many exercises may require you to type some text below the code chunk, interpreting the output and answering the questions.
+
+-   Please follow the rules from the course syllabus regarding seeking help with this assignment.
+
+#### How to **submit** this assignment.
+
+-   When you are finished, click the "Render" button at the top of this panel. If there are no errors, an HTML file should pop up after a few seconds.
+
+-   Take a look at the resulting HTML file that pops up. Make sure everything looks correct, your name is listed at the top, and that there is no 'junk' code or output.
+
+-   Save the HTML file (to your local computer, and/or to a cloud location) as: **Quiz 3 "Insert Your Name"**.
+
+-   Before you upload the file to HuskyCT, you will need to zip/compress the file.
+
+-   Upload the problem set zipped/compressed HTML to HuskyCT. **Do not** upload the original .qmd version.
+
+-   This assignment is <font color="darkred">**due Monday, March 24, 2025, no later than 4:00 pm Eastern**</font>. Points will be deducted for late submissions.
+
+-   <font color="darkblue">TIP:</font> Start early so that you can troubleshoot any issues with knitting to HTML.
+
+#### Grading Rubric
+
+There are 8 possible points on this assignment.
+
+**Baseline (C level work)**
+
+-   Your .qmd file knits to HTML without errors.
+-   You answer questions correctly but do not use complete sentences.
+-   There are typos and 'junk code' throughout the document.
+-   You do not put much thought or effort into the Reflection answers.
+
+**Average (B level work)**
+
+-   You use complete sentences to answer questions.
+-   You attempt every exercise/question.
+
+**Advanced (A level work)**
+
+-   Your code is simple and concise.
+-   Unnecessary messages from R are hidden from being displayed in the HTML.
+-   Your document is typo-free.
+-   At the discretion of the instructor, you give exceptionally thoughtful or insightful responses.
+
+------------------------------------------------------------------------
+
+This quiz is based on a data set from Chetty et al., the same author team as the economic mobility data we have worked with, but a different paper and different data that examines the role of colleges in economic mobility. If you wish, you can read about this study [here](https://opportunityinsights.org/paper/mobilityreportcards/).
+
+##### **Exercise 1. Load the appropriate packages and the data. (B) Take a glimpse of the data. (1 points)**
+
+```{r}
+library(tidyverse)
+
+mrc <- read_csv("mrc.csv")
+
+glimpse(mrc)
+```
+
+##### **Exercise 2. (A) What does each row in this data set represent? (B) Make a table of the number of colleges in each state, sorted by number. (C) Explain why there are more than 50 rows in the table you produced in part (B) even though there are only 50 states, and write code to show what is in these extra rows. (D) For the four CZs in New York with the most colleges, output a table of the CZ name, number of colleges in the CZ, and the average value of par_median in the CZ, sorted by the number of colleges in the CZ. (2 points)**
+
+```{r}
+#(a) Each row is a college or university, with associated mobility data
+
+#(b)
+mrc %>%
+  group_by(state) %>%
+  summarize(number = n()) %>%
+  arrange(number)
+
+mrc %>%
+  filter(is.na(state)) %>%
+  select(super_opeid, name)
+
+#(c) There are rows for three special situations: (1) no state, (2) people who attended late, or never, and (3) for colleges with insufficient data. There is also a row for DC, which is not a state.
+
+#(d)
+(mrc_top3 <- mrc %>%
+  filter(state=="NY") %>%
+  group_by(czname) %>%
+  summarize(number = n(), parent = mean(par_median)) %>%
+  mutate(rank = min_rank(desc(number))) %>%
+  filter(rank <= 3) %>%
+  select(-rank) %>%
+  arrange(desc(number)))
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+##### **Exercise 3. (A) Make a new variable called pk_ratio that is the ratio of parent median income to child median income, and another new variable to indicate if this ratio is low (\<=2), medium (between 2 and 3), or high (\>= 3). (B) Graphically display the number of colleges with low, medium and high parent to child median income by CZ in New York. (2 points)**
+
+```{r}
+#(a)
+mrc <- mrc %>%
+  mutate(pk_ratio = par_median/k_median,
+         pk_ratio_cat = case_when(pk_ratio <= 2 ~ "low",
+                                  pk_ratio < 3 ~ "med",
+                                  pk_ratio >= 3 ~ "high")) 
+
+#(b) Either count or bar is a good viz; stacked better than dodged; color by low/med/high, not by county; box is not good because doesn't show the number
+mrc %>%
+  filter(state=="NY") %>%
+  ggplot(mapping=aes(x=pk_ratio_cat, y=czname)) +
+  geom_count()
+
+mrc %>%
+  filter(state=="NY") %>%
+  ggplot(mapping=aes(x=czname, fill=pk_ratio_cat)) +
+  geom_bar() +
+  coord_flip()
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+##### **Exercise 4. (A) Graphically display the number of colleges in each state. (B) Graphically display the distribution of mr_kq5_pq1. (1 points)**
+
+```{r}
+#(a) bar is good, point is not
+mrc %>%
+  ggplot(mapping = aes(x = state)) +
+  geom_bar() +
+  coord_flip()
+
+#(b) histogram or freqpoly are good
+mrc %>%
+  ggplot(mapping = aes(x = mr_kq5_pq1)) +
+  geom_histogram()
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+##### **Exercise 5. Visualize the variability in mr_kq5_pq1 by CZ name in New York. (B) Describe your visualization. (1 points)**
+
+```{r}
+# Boxplot is good (reordered or not is fine); freqpoly not so good because so many CZ's
+mrc %>%
+  filter(state=="NY") %>%
+  ggplot(aes(x=czname, y=mr_kq5_pq1)) +
+  geom_boxplot() +
+  coord_flip()
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+##### **Exercise 6. Visualize the relationship between pk_ratio, mr_kq5_pq1 and trend_parq1 using geom_boxplot. (B) Describe your visualization. (1 points)**
+
+```{r}
+# boxplot required, cut_number is easiest but not the only way to get quartiles
+mrc %>%
+  ggplot(mapping=aes(x=cut_number(pk_ratio,4), y=mr_kq5_pq1, fill=cut_number(trend_parq1, 4))) +
+  geom_boxplot()
+```
+
+<font color="darkred">**ANSWER:**</font>

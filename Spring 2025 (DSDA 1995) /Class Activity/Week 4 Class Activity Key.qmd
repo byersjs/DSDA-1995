@@ -1,0 +1,98 @@
+---
+title: "Week 4 | In-Class Activity"
+format: 
+  html:
+    embed-resources: true
+editor: visual
+css: lab.css
+---
+
+```{r}
+#| include: FALSE
+
+library(tidyverse)
+
+```
+
+## Class Activity Part I
+
+We are going to practice manipulating data in R.
+
+### Getting the Data
+
+-   Go to: [the course website](https://github.com/byersjs/POLS-5605)
+    -   Download the `Chetty_2014` data set
+    -   Load the `tidyverse` package
+
+------------------------------------------------------------------------
+
+### Utilize This Code with a Partner
+
+Load the data
+
+```{r}
+library(tidyverse)
+Chetty <- read_csv("Data/Chetty_2014.csv")
+```
+
+1. Create a data frame with CZs in CT, MA, and NY. 
+
+```{r}
+chettysubset <- Chetty |>
+  filter(state == "CT" | state == "MA" | state == "NY")
+```
+
+1. Create a data frame with CZ's with absolute mobility of at least 40 
+
+```{r}
+chettyabsmob <- Chetty |>
+  filter(abs_mobility >= 40)
+```
+
+1. Create a data frame with CZ's in any state other than CT, MA, or NY, with absolute mobility at least 40
+
+```{r}
+chettysubset1 <- Chetty |>
+  filter(state != "CT" | state != "MA" | state != "NY",
+         abs_mobility >= 40)
+```
+
+1. Create a data frame with CZ's that are in CT, MA, NY and have absolute mobility less than 40
+
+```{r}
+chettysubset2 <- Chetty |>
+  filter(state == "CT" | state == "MA" | state == "NY",
+         abs_mobility < 40)
+```
+
+1. Create a data frame with CZ's that are in CT, MA, NY, sorting the CZ's in decreasing order of absolute mobility, and keeping just the CZ name, state, and absolute mobility variables in the resulting data frames
+
+```{r}
+chettysubset3 <- Chetty |>
+  filter(state == "CT" | state == "MA" | state == "NY") |>
+  arrange(desc(abs_mobility)) |>
+  select(cz_name, state, abs_mobility)
+```
+
+1. Take the Chetty data set and create a new data set with only the following variables: cz_name, state, pop_2000, abs_mobility, hhi_percap, and any variable that starts with "frac" 
+
+```{r}
+newchetty <- Chetty |>
+  select(cz_name, state, pop_2000, abs_mobility, hhi_percap, starts_with("frac"))
+```
+
+1. Make new variables for each of these quantities: (A) the number of people in each CZ who consider themselves to be religious. (B) the log base 2 of the per capita household income (hint: log2() ). (C) the proportion of people who are not married.   
+
+```{r}
+chettysub4 <- Chetty |>
+  mutate(numreligious = pop_2000 * frac_religious,
+         logincome = log2(hhi_percap),
+         marriedpeople = (pop_2000 * frac_married),
+         propnotmarried = (pop_2000 - marriedpeople) / pop_2000) #you could also just take 1 and subtract frac_marreid from it
+```
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+---
+title: "Group Project"
+format: 
+  html:
+    embed-resources: true
+editor: visual
+css: lab.css
+---
+
+```{r}
+#| include: FALSE
+
+library(tidyverse)
+
+```
+
+## Today's Agenda
+
+- Examine the group project
+- Break out into our groups and discuss potential research questions
+
+---
+
+## Useful Tools for Collaboration
+
+- Organization
+
+  + Trello
+  
+  + Google Drive
+  
+  + Dropbox
+  
+  + Creating an R project
+  
+  + Doodle
+  
+  + Github
+  
+---
+
+## Finding (non-trivial) Data
+
+- [Kaggle Public Datasets](https://www.kaggle.com/datasets)
+
+- [UN Humanitarian Data Exchange](https://data.humdata.org)
+
+- [NYC Open Data](https://opendata.cityofnewyork.us)
+
+- [Google Dataset Search](https://datasetsearch.research.google.com)
+
+- Ask library staff?
+
+- UConn data?

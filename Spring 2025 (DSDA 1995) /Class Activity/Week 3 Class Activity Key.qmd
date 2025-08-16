@@ -1,0 +1,178 @@
+---
+title: "Week 3 | In-Class Activity"
+format: 
+  html:
+    embed-resources: true
+editor: visual
+css: lab.css
+---
+
+```{r}
+#| include: FALSE
+
+library(tidyverse)
+
+```
+
+## Class Activity Part I
+
+We are going to practice creating some plots in `ggplot()`.
+
+### Getting the Data
+
+-   Go to: [the course website](https://github.com/byersjs/POLS-5605)
+    -   Download the `justice_NY_clean` data set
+    -   Load the `tidyverse` package
+
+------------------------------------------------------------------------
+
+### Utilize This Code with a Partner
+
+Load the data
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+prison <- read_csv("~/Dropbox/Schools/UCONN/Courses/Spring 2025/POLS 5605/Class Activity/Data/justice_NY_clean.csv")
+```
+
+1.  Create a scatter plot of the Percent Under \$25K vs rate.
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data = prison) + 
+  geom_point(mapping = aes(x = pct_under_25K , y = rate))
+```
+
+1.  Use aesthetics to indicate cost
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data = prison) + 
+  geom_point(mapping = aes(x = pct_under_25K , y = rate, color = cost))
+```
+
+1.  Change the size, shape and/or color of all points in your scatterplot
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data = prison) + 
+  geom_point(mapping = aes(x = pct_under_25K , y = rate, color = cost), size = 12, shape = 20)
+```
+
+## Class Activity Part II
+
+We are going to continue practicing creating plots in `ggplot()`.
+
+### Getting the Data
+
+-   Go to: [the course website](https://github.com/byersjs/POLS-5605)
+    -   Download the `Chetty_2014` data set
+    -   Load the `tidyverse` package
+
+------------------------------------------------------------------------
+
+Load the data
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+chetty <- read_csv("~/Dropbox/Schools/UCONN/Courses/Spring 2025/POLS 5605/Class Activity/Data/Chetty_2014.csv")
+```
+
+1.  Visualize the relationship between social capital and absolute mobility. Do you see a correlation? Is it what you expected from the Chetty study executive summary?
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data = chetty, mapping = aes(x = social_capital, y = abs_mobility)) +
+  geom_point()
+```
+
+1.  Add an aesthetic to your graph to represent whether the CZ is urban or not.
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data = chetty, mapping = aes(x = social_capital, y = abs_mobility, color = urban)) +
+  geom_point()
+```
+
+1.  Separate urban and non-urban CZ's into two separate plots.
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data = chetty, mapping = aes(x = social_capital, y = abs_mobility, color = urban)) +
+geom_point() + facet_wrap(~ urban)
+```
+
+1.  Add a smooth fit to each of your plots above. Experiment with adding the option method="lm" in your geom_smooth. What does this option do?
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data = chetty, mapping = aes(x = social_capital, y = abs_mobility, color = urban)) +
+geom_point() + 
+facet_wrap(~ urban) +
+geom_smooth()
+
+
+#add method = "lm", se = FALSE to the geom_smooth() function
+ggplot(data = chetty, mapping = aes(x = social_capital, y = abs_mobility, color = urban)) +
+geom_point() + 
+facet_wrap(~ urban) +
+geom_smooth(method = "lm", se = FALSE)
+```
+
+Which variables in the chetty data frame are appropriate x variables for a bar graph?
+
+-   Any categorical variable can be the x-variable in a bar graph, so cz_name, state, region, division, and urban.
+-   Note that the variables with values of either 0 or 1 (top_100, inctax_progressive, eitc) are *theoretically* categorical because there are only two options for the value. However, in this data frame they are read in as "dbl" which is a continuous numerical variable type. Because I converted top_100 to a "factor," it is also categorical, and you could do the same with the other 0/1 variables. We'll learn more about this later!
+
+1.  Make two separate bar graphs for two different x variables.
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+#first plot
+ggplot(data=chetty, mapping=aes(x=region)) +
+  geom_bar()
+
+#second plot
+ggplot(data=chetty, mapping=aes(x=state)) +
+  geom_bar()
+```
+
+1.  Make two more bar graphs that display proportions rather than counts of your selected variables.
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data=chetty, mapping=aes(x=state, y = stat(prop), group = 1)) +
+  geom_bar()
+```
+
+1.  Make a bar graph that lets you compare the number of urban and rural CZ's in each of the four regions
+
+```{r}
+#| eval: TRUE
+#| echo: TRUE
+
+ggplot(data=chetty, mapping=aes(x=region, fill = urban)) +
+  geom_bar()
+```

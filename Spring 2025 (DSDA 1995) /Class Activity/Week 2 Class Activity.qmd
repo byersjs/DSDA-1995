@@ -1,0 +1,107 @@
+---
+title: "Week 2 | In-Class Activity"
+format: 
+  html:
+    embed-resources: true
+editor: visual
+css: lab.css
+---
+
+## Class Activity
+
+We are going to practice finding, loading, and dealing with messy data.
+
+-   About the data
+    -   Water consumption in NYC
+    -   [NYC Open Data](https://opendata.cityofnewyork.us)
+
+------------------------------------------------------------------------
+
+### Getting the Data
+
+-   Go to: [the course website](https://github.com/byersjs/POLS-5605)
+    -   Download the data
+    -   Load the `tidyverse` package
+
+------------------------------------------------------------------------
+
+### Utilize This Code with a Partner
+
+```{r eval = FALSE}
+#Figure out what working directory R is currently utilizing
+getwd()
+```
+
+```{r eval = FALSE}
+#Where did you download the data (i.e., desktop, download folder, etc.)
+#Do you need to change your working directory to ensure that you can load the data?
+setwd("insert your working directory here")
+```
+
+```{r eval = FALSE}
+#Once you have set your working directory, make sure to read the data into R
+
+nyc <- read.csv("NYCWater.csv")
+```
+
+```{r eval = FALSE}
+glimpse(carib)
+```
+
+1.  Remove the first row from the data set.
+
+```{r eval = FALSE}
+#We are going to delete the first row of the data
+#nyc[rownumber, columnnumber]
+
+nyc <- nyc[-1, ]
+
+#
+
+#Check to see if it worked
+View(nyc)
+```
+
+Do we notice any issues with the data set?
+
+```{r eval = FALSE}
+View(nyc)
+```
+
+The first thing you should notice is that all of the variable types are numeric. Additionally, all of the variable names are too long and complicated.
+
+```{r eval = FALSE}
+class(nyc$New.York.City.Population)
+```
+
+1.  What does R mean when it says a variable (in this case the column for "Island Names") is a numeric class?
+
+2.  What is the code below showing you?
+
+```{r eval = FALSE}
+nyc$Year[1:5]
+```
+
+1.  Which years are represented in this dataset?
+
+```{r eval = FALSE}
+unique(nyc$Year)
+```
+
+Let's create a plot
+
+```{r eval = FALSE}
+ggplot(data = nyc, mapping = aes(x = year, y = Per.Capita.Gallons.per.person.per.day.)) + 
+  geom_point()
+```
+
+1.  Rename the "New.York.City.Population" and "NYC.Consumption.Million.gallons.per.day." variables
+
+```{r eval = FALSE}
+colnames(dataFrame)[colnames(dataFrame) == "oldName"] <- "newName"
+
+# OR
+
+dataframe <- dataframe |>
+  rename(NewName = Oldname)
+```

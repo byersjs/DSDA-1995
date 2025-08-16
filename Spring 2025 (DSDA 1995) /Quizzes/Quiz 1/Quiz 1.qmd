@@ -1,0 +1,170 @@
+---
+title: "Quiz 1"
+author: "Your Name"
+format: 
+  html:
+    embed-resources: true
+    theme: cosomo
+editor: visual
+---
+
+### Instructions
+
+#### How to **complete** this assignment.
+
+-   Attempt each exercise in order.
+
+-   In each code chunk, if you see "<font color="789922">\# INSERT CODE HERE"</font>, then you are expected to add some code to create the intended output (Make sure to erase "\# INSERT CODE HERE" and place your code in its place).
+
+-   If my instructions say to "Run the code below..." then you do not need to add any code to the chunk.
+
+-   Many exercises may require you to type some text below the code chunk, interpreting the output and answering the questions.
+
+-   Please follow the rules from the course syllabus regarding seeking help with this assignment.
+
+#### How to **submit** this assignment.
+
+-   When you are finished, click the "Render" button at the top of this panel. If there are no errors, an HTML file should pop up after a few seconds.
+
+-   Take a look at the resulting HTML file that pops up. Make sure everything looks correct, your name is listed at the top, and that there is no 'junk' code or output.
+
+-   Save the HTML file (to your local computer, and/or to a cloud location) as: **Quiz 1 "Insert Your Name"**.
+
+-   Before you upload the file to HuskyCT, you will need to zip/compress the file.
+
+-   Upload the problem set zipped/compressed HTML to HuskyCT. **Do not** upload the original .qmd version.
+
+-   This assignment is <font color="darkred">**due Monday, February 17, 2025, no later than 4:00 pm Eastern**</font>. Points will be deducted for late submissions.
+
+-   <font color="darkblue">TIP:</font> Start early so that you can troubleshoot any issues with knitting to HTML.
+
+#### Grading Rubric
+
+There are 8 possible points on this assignment.
+
+**Baseline (C level work)**
+
+-   Your .qmd file knits to HTML without errors.
+-   You answer questions correctly but do not use complete sentences.
+-   There are typos and 'junk code' throughout the document.
+-   You do not put much thought or effort into the Reflection answers.
+
+**Average (B level work)**
+
+-   You use complete sentences to answer questions.
+-   You attempt every exercise/question.
+
+**Advanced (A level work)**
+
+-   Your code is simple and concise.
+-   Unnecessary messages from R are hidden from being displayed in the HTML.
+-   Your document is typo-free.
+-   At the discretion of the instructor, you give exceptionally thoughtful or insightful responses.
+
+------------------------------------------------------------------------
+
+#### **Exercise 1. Read and filter data to get data only for the 100 largest commuting zones (CZ). You will work with chetty_top100 throughout this lab. (0.8 points)**
+
+```{r, message=FALSE, warning=FALSE}
+
+# If you have not already installed the packages, go to your Console panel and type    
+# install.packages("tidyverse")
+
+# Run the code below to load the tidyverse package
+library(tidyverse)
+
+
+#read in the data
+chetty <- read_csv("Chetty_2014.csv")
+
+# filter for top 100 commuting zones
+chetty_top100 <- chetty %>%
+  filter(top_100==1)
+
+# remove the larger data set with all commuting zones from the work space
+rm(chetty)
+```
+
+#### Economic Mobility & Household Income Across Commuting Zones
+
+You will explore the relationship between economic mobility and CZ characteristics: household income per capita (hhi_percap). The mobility measure that you will use in this analysis captures the probability that a child born to a parent in quintile 1 moves to income quintile 5 as an adult (prob_q1q5).
+
+#### **Exercise 2. Make a scatterplot with household income per capita (hhi_percap) on the x-axis, and mobility (abs_mobility) on the y-axis. (A) Describe the graph: what is the approximate range of the x-axis? (B) What is the approximate range of the y-axis? (C) Do you think there is a relationship between these two variables? (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 3. Use color to represent the geographic region (region) to your scatterplot. (A) What patterns does this reveal? (B) Describe the distribution of the data, by region. (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+<font color="darkred">**ANSWER:**</font> 
+
+#### **Exercise 4. Represent geographic region (region) on your scatterplot using shape instead of color. Compare the use of color vs shape to represent the region: what are the benefits and drawbacks of each? (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 5. Going back to the graph you made in Exercise 3, which uses color to represent the geographic region, add another aesthetic to represent the size of the population (pop_2000, population from the 2000 Census). Describe any relationships between size and region. (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 6. Split your plot into facets to display scatterplots of your data by region. (A) Compare this split plot to the combined plot from Exercise 3. Are there aspects of the relationship between hhi_percap and mobility that are easier to detect in the faceted plot than in the combined plot? (B) Which regions appear to have a relatively stronger relationship between hhi_percap and mobility? (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 7. Add information on the census division (division) to your graph using the color aesthetic. (A) What does this reveal about divisional differences in the West? (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 8. Create a plot of the relationship between hhi_percap and abs_mobility with two layers: (1) A scatterplot colored by region, and (2) a smooth fit chart with no standard error also colored by region. (A) What patterns does this illustrate in the data? (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 9. Create a bar graph that displays the count of CZs by region and fill each bar using information on census division (division). What do you learn from this graph? (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 10. (A)Make new bar graphs with position "dodge" (0.8 points)**
+
+```{r}
+#insert code here
+```
+
+#### **(B) Make new bar graphs with position "fill"**
+
+```{r}
+#insert code here
+```
+
+#### **(C) What is the relative advantage of each of the three bar graphs?**
+
+<font color="darkred">**ANSWER:**</font>

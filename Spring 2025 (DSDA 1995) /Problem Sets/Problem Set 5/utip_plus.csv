@@ -1,0 +1,51 @@
+Code,State,tract_gini,hh_gini,income_seg,region,division,inctax_progressive,avg_mob,inctax
+AL,Alabama,0.187012221,0.475,0.393709939,South,East South Central,0,38.33298186,none
+AK,Alaska,0.149210849,0.402,0.371171267,West,Pacific,0,44.05555843,flat
+AZ,Arizona,0.223357097,0.45,0.496349105,West,Mountain,1.66,40.01372929,prog
+AR,Arkansas,0.143483241,0.458,0.313282185,South,West South Central,1,40.30095785,prog
+CA,California,0.242471909,0.475,0.510467177,West,Pacific,6.3,43.53320727,v. prog
+CO,Colorado,0.213225345,0.438,0.486815856,West,Mountain,0,43.13686233,flat
+CT,Connecticut,0.255451707,0.477,0.535538171,Northeast,New England,0,42.44824982,flat
+DE,Delaware,0.18021474,0.429,0.420080979,South,South Atlantic,0.75,38.1374648,prog
+FL,Florida,0.211543247,0.47,0.450092015,South,South Atlantic,0,39.58695892,none
+GA,Georgia,0.218142752,0.461,0.473194691,South,South Atlantic,0,36.24570854,flat
+HI,Hawaii,0.171691587,0.434,0.395602736,West,Pacific,1.05,43.91156475,prog
+ID,Idaho,0.149842251,0.427,0.350918621,West,Mountain,0.4,44.6157635,prog
+IL,Illinois,0.222784405,0.456,0.488562292,Midwest,East North Central,0,40.5831518,flat
+IN,Indiana,0.16870346,0.424,0.397885518,Midwest,East North Central,0,40.05678665,flat
+IA,Iowa,0.141843786,0.418,0.339339201,Midwest,West North Central,2.86,48.91383782,v. prog
+KS,Kansas,0.198253346,0.435,0.455754818,Midwest,West North Central,0.2,44.6128396,prog
+KY,Kentucky,0.190654566,0.468,0.40738155,South,East South Central,0.2,39.70766757,prog
+LA,Louisiana,0.192753479,0.483,0.399075526,South,West South Central,4,39.89996684,v. prog
+ME,Maine,0.143173236,0.434,0.329892248,Northeast,New England,0,42.46921786,flat
+MD,Maryland,0.219668307,0.434,0.506148172,South,South Atlantic,1,39.15937758,prog
+MA,Massachusetts,0.216281516,0.463,0.467130704,Northeast,New England,0,44.18237086,flat
+MI,Michigan,0.19601683,0.44,0.445492796,Midwest,East North Central,0,38.80203151,flat
+MN,Minnesota,0.192725147,0.426,0.452406448,Midwest,West North Central,2.5,46.48945351,v. prog
+MS,Mississippi,0.152966996,0.478,0.320014636,South,East South Central,0,37.45904955,flat
+MO,Missouri,0.198513997,0.449,0.442124716,Midwest,West North Central,0,40.57123099,flat
+MT,Montana,0.138747254,0.436,0.318227646,West,Mountain,0,46.56194145,flat
+NE,Nebraska,0.176020748,0.424,0.415143274,Midwest,West North Central,1.72,46.82243351,prog
+NV,Nevada,0.196391981,0.436,0.450440322,West,Mountain,0,40.60639293,none
+NH,New Hampshire,0.158090934,0.414,0.381862159,Northeast,New England,0,44.14299768,flat
+NJ,New Jersey,0.230310504,0.46,0.500675008,Northeast,Mid-Atlantic,7.22,44.2505942,v. prog
+NM,New Mexico,0.188898325,0.46,0.410648533,West,Mountain,0,41.05619957,flat
+NY,New York,0.260764806,0.499,0.522574761,Northeast,Mid-Atlantic,0,43.39568209,flat
+NC,North Carolina,0.181711086,0.452,0.402015677,South,South Atlantic,1,36.51904197,prog
+ND,North Dakota,0.128786262,0.429,0.300201077,Midwest,West North Central,3.44,53.74260142,v. prog
+OH,Ohio,0.194513143,0.441,0.441072888,Midwest,East North Central,2.66,39.11435478,v. prog
+OK,Oklahoma,0.180941949,0.455,0.397674614,South,West South Central,0,43.13343427,flat
+OR,Oregon,0.170579498,0.438,0.389450908,West,Pacific,0,41.20411672,flat
+PA,Pennsylvania,0.206076459,0.452,0.455921371,Northeast,Mid-Atlantic,0,43.46872438,flat
+RI,Rhode Island,0.189409664,0.457,0.41446316,Northeast,New England,6.15,43.36874771,v. prog
+SC,South Carolina,0.168162889,0.454,0.37040284,South,South Atlantic,0,36.56214329,flat
+SD,South Dakota,0.145435674,0.434,0.33510524,Midwest,West North Central,0,49.06449868,none
+TN,Tennessee,0.194556422,0.465,0.418400908,South,East South Central,0,37.57139183,flat
+TX,Texas,0.232158063,0.47,0.493953326,South,West South Central,0,42.50768821,none
+UT,Utah,0.181956832,0.41,0.443797152,West,Mountain,0,47.33829167,flat
+VT,Vermont,0.135785933,0.423,0.321006934,Northeast,New England,5.9,44.13111514,v. prog
+VA,Virginia,0.23433501,0.449,0.521904254,South,South Atlantic,0,39.22140845,flat
+WA,Washington,0.185462097,0.436,0.425371782,West,Pacific,0,43.26100439,none
+WV,West Virginia,0.137199317,0.468,0.293160934,South,South Atlantic,2.5,43.64309937,v. prog
+WI,Wisconsin,0.16020363,0.413,0.387902251,Midwest,East North Central,0.25,43.977362,prog
+WY,Wyoming,0.138659114,0.428,0.323969894,West,Mountain,0,49.73493532,none

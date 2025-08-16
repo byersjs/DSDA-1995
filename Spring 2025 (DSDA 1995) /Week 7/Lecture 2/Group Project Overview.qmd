@@ -1,0 +1,255 @@
+---
+title: "Group Project Overview"
+format: 
+  html:
+    embed-resources: true
+editor: visual
+css: lab.css
+---
+
+```{r}
+#| include: FALSE
+
+library(tidyverse)
+
+```
+
+Many data science teams are composed of professionals from varied backgrounds. These individuals work together to identify and answer interesting business and research questions using data. Participating in this group project will give you insight into working on a data science team, and working through the Tidy Data Workflow to transform a set of questions into a well-designed product that communicates clear findings.
+
+For your final project, you will be divided into groups of four. Your charge is to identify a data set and complete a data analysis that answers one or more questions. Your project should generally follow the process of the Tidy Data Workflow. As this charge can be interpreted broadly, more information is outlined below.
+
+This project is designed as a capstone experience, bringing together most of what you have learned this semester. You will work as a team, as most data scientists do, to analyze a historical or contemporary case study. The goal is to illuminate the issue through visualization of data, and encourage exploration by providing a user interface in an R Shiny application.
+
+
+### Goals
+
+- Produce an end-to-end data science project
+
+- Give students an opportunity to assume data science team roles and practice collaboration.
+
+- Identify interesting data sets, develop good questions which can be answered with available data, use data science techniques to draw insights from the data, and present insights in a compelling manner.
+
+
+### Deliverables
+
+- Project Proposal
+
+- Exploratory data analysis
+
+- Final presentation
+
+- Final report
+
+
+### Rationale for the Group Project
+
+- Simulates data science in practice with collaboration and dependencies
+
+- Clearly defined roles that demand participation by everyone and requires accountability
+
+- Allows students with different skills and interests to make meaningful contributions
+
+- Gives practice with communicating insights in different ways
+
+- Each deliverable requires participation among all group members
+
+- Distributes the burden of responsibility for deliverables
+
+
+### Project Grading
+
+- Total project grade out of 20 points
+
+  + Project Proposal = 5 points
+  
+  + Exploratory Data Analysis / Proof of Concept = 5 points
+  
+  + Final Presentation = 5 points
+  
+  + Final User Report = 5 points
+  
+- Group members will receive approximately the same grade
+
+- To eliminate subjectivity from grading
+    
+  + Follow instructions
+
+  + Meet deadlines
+  
+  + Address all rubric items
+  
+  + Work together on each deliverable
+  
+- Areas of subjectivity
+
+  + Verbal communication
+  
+  + Written communication
+  
+  + Graphics grammar
+  
+  + Product design
+  
+  + Text grammar and spelling
+  
+  
+### Group Assignments
+
+You have been randomly assigned into groups of four for this assignment. You are responsible for delegating roles within your groups, finding time to work together, and meeting deadlines for project deliverables.
+
+
+### Group Roles
+
+Everyone in the group will be responsible for the project, but each member will be assigned a specific role to ensure consistency and accountability. The roles are described below.
+
+- **Project Lead:** Lead question meeting(s), and ensure delivery of project proposal
+
+- **Lead Interpreter:** Deliver results of exploratory analysis based on initial questions, and explain follow up questions
+
+- **Lead Storyteller:** Communicate final findings in a presentation
+
+- **Technical Lead:** Ensure on-time delivery of polished final products (presentation and report)
+
+
+### Project Lead
+
+- Lead initial question meeting and follow up question meeting among group
+
+- Schedule a 15 minute meeting with Dr. Byers during office hours (**by April 1**)
+
+- Present project proposal (1-2 page document, RMarkdown preferred)
+
+- Discuss chosen dataset(s)
+
+- Discuss the initial questions the group intends to answer
+
+- State delegated group roles
+
+
+### Lead Interpreter
+
+- Schedule a (separate from above) 15 minute meeting with Dr. Byers during office hours (**by April 15**)
+
+- Briefly present any interesting results from the group’s initial questions (1-2 page document, RMarkdown preferred)
+
+- Discuss group findings on follow-up questions
+
+- Explain which areas the group will focus on for the final presentation and report
+
+
+### Lead Storyteller
+
+- Deliver a presentation on assigned date (**April 28** )
+
+- Create a presentation utilizing R Shiny
+
+- Explain the data used
+
+- Show compelling visuals and tables (created using R and R Shiny) to illustrate discoveries
+
+- Discuss details of methods used for questions answered after the exploratory data analysis
+
+- Summarize the accompanying report
+
+
+### Technical Lead
+
+- Ensure that deliverable documents are organized according as RMarkdown templates
+
+- Check (double check, and triple check) for and correct grammar and spelling errors.
+
+- Ensure that all sections are clearly explained and have addressed all project requirements.
+
+- Submit deliverables before the specified due date in the proper format.
+
+
+### Project Parts
+
+**Part 1: Proposal**
+
+- Select and use at least two publicly available data sources (All group members)
+
+  + You need to have two data sources
+
+- Submit two initial questions from each group member (All group members)
+
+  + Innovative thought
+  
+  + Non-trivial
+  
+  + Available data can be used to answer your research questions
+
+- Delegate project roles (All group members)
+
+- Communicate proposal with Dr. Byers (Project Lead)
+
+  + Set up a meeting during office hours
+  
+  + Arrive on time with materials you wish to present
+  
+  + Have chosen data sources ready to show
+  
+  + Information on:
+  
+    + Data sources
+    
+    + Variables contained and type
+    
+    + Initial questions your group will investigate
+    
+    + Variable of interest that may help answer your group's questions
+    
+- What roles other groups members are taking
+
+- Keep it brief
+
+
+**Part 2: Exploratory Data Analysis**
+
+- Choose two of the questions from the group to explore 
+
+- Incorporate at least two different primary sources of data (not including geometry)
+
+- In the User Guide (i.e., written report) provide an overview of the data and guidance to the user of “things to explore,” and discuss and interpret the results
+
+- Display a map with at least one UI control in the dashboard 
+
+- Display at least 3 different types of plots (i.e., geoms) responding to one or more UI control
+
+- Written summary (Edited, proofread HTML document) 
+  
+  + At least a page
+    
+    + Describes your research question(s)
+    
+    + Describes your data
+    
+    + Depicts and describes the plots that you created and any relationships that you found
+    
+    + Provides any conclusions that the group has drawn based on these data
+    
+
+**Part 3: Presentation and Paper**
+
+- You will present your interactive dashboard that you created in R Shiny
+
+- Presentation should be 15 to 20 minutes 
+
+
+### Advice
+
+- Choose project roles based on strengths and availability
+
+- Select interesting data with sufficient dimensions (rows and columns) and variable types
+
+- Find essential questions that lead to general initial questions
+
+- After exploring initial questions, meet as a group to discuss the results
+
+- Discuss the information that will be summarized in the report
+
+- Complete your assigned tasks and hold other group members accountable
+
+- Elevate serious issues to Dr. Byers as early as possible
+
+- Be prepared to give peer evaluations at the end of the project, ranking each group member on a scale from “least helpful” to “most helpful”

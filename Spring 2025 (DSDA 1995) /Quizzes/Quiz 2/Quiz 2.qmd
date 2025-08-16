@@ -1,0 +1,116 @@
+---
+title: "Quiz 2"
+author: "Your Name"
+format: 
+  html:
+    embed-resources: true
+    theme: cosomo
+editor: visual
+---
+
+### Instructions
+
+#### How to **complete** this assignment.
+
+-   Attempt each exercise in order.
+
+-   In each code chunk, if you see "<font color="789922">\# INSERT CODE HERE"</font>, then you are expected to add some code to create the intended output (Make sure to erase "\# INSERT CODE HERE" and place your code in its place).
+
+-   If my instructions say to "Run the code below..." then you do not need to add any code to the chunk.
+
+-   Many exercises may require you to type some text below the code chunk, interpreting the output and answering the questions.
+
+-   Please follow the rules from the course syllabus regarding seeking help with this assignment.
+
+#### How to **submit** this assignment.
+
+-   When you are finished, click the "Render" button at the top of this panel. If there are no errors, an HTML file should pop up after a few seconds.
+
+-   Take a look at the resulting HTML file that pops up. Make sure everything looks correct, your name is listed at the top, and that there is no 'junk' code or output.
+
+-   Save the HTML file (to your local computer, and/or to a cloud location) as: **Quiz 2 "Insert Your Name"**.
+
+-   Before you upload the file to HuskyCT, you will need to zip/compress the file.
+
+-   Upload the problem set zipped/compressed HTML to HuskyCT. **Do not** upload the original .qmd version.
+
+-   This assignment is <font color="darkred">**due Monday, March 3, 2025, no later than 4:00 pm Eastern**</font>. Points will be deducted for late submissions.
+
+-   <font color="darkblue">TIP:</font> Start early so that you can troubleshoot any issues with knitting to HTML.
+
+#### Grading Rubric
+
+There are 8 possible points on this assignment.
+
+**Baseline (C level work)**
+
+-   Your .qmd file knits to HTML without errors.
+-   You answer questions correctly but do not use complete sentences.
+-   There are typos and 'junk code' throughout the document.
+-   You do not put much thought or effort into the Reflection answers.
+
+**Average (B level work)**
+
+-   You use complete sentences to answer questions.
+-   You attempt every exercise/question.
+
+**Advanced (A level work)**
+
+-   Your code is simple and concise.
+-   Unnecessary messages from R are hidden from being displayed in the HTML.
+-   Your document is typo-free.
+-   At the discretion of the instructor, you give exceptionally thoughtful or insightful responses.
+
+------------------------------------------------------------------------
+
+The provided data on early care and education were painstakingly collected by Scott Latham and collaborators at the Stanford Center for Educational Policy Analysis, in support of a recent publication available [here](https://cepa.stanford.edu/content/effects-accountability-incentives-early-childhood-education).
+
+You can read more about the QIRS system [here](http://ncchildcare.nc.gov/parents/pr_sn2_ov_sr.asp).
+
+Instead of an online code book, we have a note from Professor Latham: "We have a panel of all licensed child care providers in NC from 2007-2014. This includes center based providers and family child care homes. For all providers, we have county identifiers and zip codes. We also know facility types (e.g. independent, Head Start, local public school), enrollment, capacity, and some zip code level demographics (% below pov, % black, % Hispanic). For most providers, we have information about quality as measured by NC’s Quality Rating and Improvement System (QRIS), but most of these indicators aren’t readily interpretable, because they are linked to the QRIS rubric (e.g. we have a measure of teacher/staff education & credentials that goes from 1-7). The one measure of quality that is fairly straightforward to interpret are ERS ratings (widely-used measure of observed classroom quality). These are elective, so we only have for a subset of the providers."
+
+#### **Exercise 1. Load the appropriate packages and the data. (B) Take a glimpse of the data. (1 points)**
+
+```{r}
+#INSERT CODE HERE
+```
+
+#### **Exercise 2. Make a new data frame called nc14 that contains all NC facilities in the year 2014, with the variables fname, zip, ftype, p_pov, med_income, QRIS_ERS, and a new variable p_cap = enroll/capacity. You will use this data frame in the remaining questions. (1.4 points)**
+
+```{r}
+#INSERT CODE HERE
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 3. (A) Make a new data frame that shows the number of facilities evaluated in each zip code in 2014, and the value of p_pov for each zipcode. Sort by decreasing order in the number of facilities. (B) Make a plot from the data frame you made in part (a) that demonstrates variation in percent poverty across zip codes in NC. (C) Explain why your plot in (b) is different from a plot that demonstrates variation in p_pov in the original nc14 data frame. (1.4 points)**
+
+```{r}
+#INSERT CODE HERE
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 4. (A) Add a new variable to nc14 that lumps together various facility types into five groups, based on the value of ftype, as follows: Independent; Franchise; Religious sponsored; Federal, Head Start or Local public school; All others. (B) Make a plot to show the variation in p_cap across these five groups.(1.4 points)**
+
+```{r}
+#INSERT CODE HERE
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 5. Make a boxplot to visualize covariation between QRIS_ERS and med_income, binning med_income to treat it as a categorical variable, and representing the number of observations in each category by the width of the corresponding box. (1.4 points)**
+
+```{r}
+#INSERT CODE HERE
+```
+
+<font color="darkred">**ANSWER:**</font>
+
+#### **Exercise 6. (A) Visualize the relationship between med_income and QRIS_ERS using a scatter plot. (B) Visualize the same relationship using geom_bin2d. (C) Discuss the pros and cons of each of these visualizations. (1.4 points)**
+
+```{r}
+#INSERT CODE HERE
+```
+
+<font color="darkred">**ANSWER:**</font>
