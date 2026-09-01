@@ -17,7 +17,7 @@ website:
     right: 
       - href: index.qmd
         text: Home
-      - href: https://byersjs.github.io/DSDA-1995-Syllabus/
+      - href: https://www.jasonsbyers.com/STAT-1010_DSDA-1010-Syllabus/
         text: "Syllabus"
       #- text: DASS Data
       #  menu: 
@@ -35,7 +35,7 @@ website:
       #      href: DASS Data/UK_districts.csv 
       - href: https://huskyct.uconn.edu
         icon: mortarboard-fill
-      - href: https://github.com/byersjs/DSDA-1995
+      - href: https://github.com/byersjs/STAT-1010_DSDA-1010
         icon: github
       
 format:
